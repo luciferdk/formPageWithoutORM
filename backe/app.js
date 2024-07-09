@@ -2,6 +2,7 @@ const express = require('express');
 const pg = require('pg');
 const { Pool } = require('pg');
 require('dotenv').config();
+const cors = require('cors')
 
 const app = express();  //this is our app or interface of express
 const port = 8080; // Adjust port number as needed
@@ -53,7 +54,7 @@ app.use(express.json()); //and this is for accept data in json formate
 
 app.use(express.urlencoded()); //this is i used for decode the data send through html form
 
-
+app.use(cors());  // Enable CORS for all origins (not recommended for production)
 
 
 //API routes
